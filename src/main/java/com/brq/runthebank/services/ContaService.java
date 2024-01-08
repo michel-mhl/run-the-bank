@@ -23,6 +23,9 @@ public class ContaService {
     private final ClienteRepository clienteRepository;
 
     @Autowired
+    private NotificacaoService notificacaoService;
+
+    @Autowired
     public ContaService(ContaRepository contaRepository, ClienteRepository clienteRepository) {
         this.contaRepository = contaRepository;
         this.clienteRepository = clienteRepository;
@@ -87,6 +90,9 @@ public class ContaService {
 
         contaRepository.save(contaOrigem);
         contaRepository.save(contaDestino);
+
+        notificacaoService.enviarNotificacao();
+
     }
 
 }

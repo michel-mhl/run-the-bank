@@ -1,5 +1,6 @@
 package com.brq.runthebank.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,7 @@ public class Cliente {
     private String name;
     private String address;
     private String password;
+    @JsonIgnore
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Conta> contas;
 
