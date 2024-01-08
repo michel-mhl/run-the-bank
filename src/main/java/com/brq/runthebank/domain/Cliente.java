@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,13 +22,23 @@ public class Cliente {
     private String name;
     private String address;
     private String password;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Conta> contas;
 
 
-    public Cliente(String document, String name, String adddress, String password) {
+    public Cliente(String document, String name, String address, String password) {
         this.document = document;
         this.name = name;
-        this.address = adddress;
+        this.address = address;
         this.password = password;
     }
+
+
+
+    public void adicionarConta(Conta conta) {
+        this.contas.add(conta);
+        conta.setCliente(this);
+    }
+
 }
 

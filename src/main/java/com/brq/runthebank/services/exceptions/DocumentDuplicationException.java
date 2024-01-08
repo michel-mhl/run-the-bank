@@ -4,4 +4,6 @@ public class DocumentDuplicationException extends RuntimeException {
     public DocumentDuplicationException(String documento) {
         super(documento);
     }
+
+
 }

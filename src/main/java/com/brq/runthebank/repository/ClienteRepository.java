@@ -10,5 +10,6 @@ import java.util.Optional;
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
 
-    Optional<Object> findByDocument(String document);
+    Optional<Cliente> findByDocument(String document);
+
 }

@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Entity
 @Data
 @NoArgsConstructor
+
 public class Conta {
 
     @Id
@@ -29,6 +30,14 @@ public class Conta {
         this.cliente = cliente;
         this.saldo = saldo;
         this.ativa = ativa;
+    }
+
+    public void debitar(BigDecimal valor) {
+        this.saldo = this.saldo.subtract(valor);
+    }
+
+    public void creditar(BigDecimal valor) {
+        this.saldo = this.saldo.add(valor);
     }
 }
 

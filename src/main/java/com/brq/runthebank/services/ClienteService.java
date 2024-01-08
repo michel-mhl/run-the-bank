@@ -7,6 +7,9 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class ClienteService {
 
@@ -23,6 +26,15 @@ public class ClienteService {
         }
 
         return clienteRepository.save(cliente);
+    }
+
+    public Optional<Cliente> getByCliente(String documento) {
+        return clienteRepository.findByDocument(documento);
+    }
+
+    public List<Cliente> getAllClientes() {
+      List<Cliente> clientes =  clienteRepository.findAll();
+        return clientes;
     }
 }
 

@@ -1,4 +1,4 @@
-package com.brq.runthebank.dto.requestDTO;
+package com.brq.runthebank.dto;
 
 import com.brq.runthebank.domain.Cliente;
 import lombok.Data;
